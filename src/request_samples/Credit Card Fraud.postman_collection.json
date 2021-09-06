@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "e3704e05-7a4e-48a0-bf28-661e85cce5b7",
+		"name": "Credit Card Fraud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrain",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/retrain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"retrain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction: Not Fraud",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"description": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"predictors\": {\n        \"Time\": 0, \"V1\": -1.359807134, \"V2\":-0.072781173, \"V3\":2.53634673, \"V4\":1.378155224, \n        \"v5\":-0.33832077, \"v6\":\t0.462387778, \"v7\": 0.239598554, \"v8\": 0.098697901,\n        \"v9\": 0.36378697, \"v10\": 0.090794172, \"v11\":  -0.551599533, \"v12\": -0.617800856,\n        \"v13\": -0.991389847, \"v14\": -0.311169354, \"v15\": 1.468176972, \"v16\": -0.470400525,\n        \"v17\": 0.207971242, \"v18\": \t0.02579058, \"v19\": \t0.40399296, \"v20\": \t0.251412098,\n        \"v21\": \t-0.018306778, \"v22\": 0.277837576, \"v23\": -0.11047391, \"v24\": 0.066928075,\n        \"v25\": \t0.128539358, \"v26\": -0.189114844, \"v27\":  0.133558377, \"v28\": -0.021053053, \n        \"Amount\": 149.62  \n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/is_fraud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"is_fraud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction: Set Type Manual",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "application/json",
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"transaction_id\": \"aff791b41e39f94aaa466658367d2f4a\",\n    \"is_fraud\": \"True\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/manual",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"manual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction: Fraud",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "application/json",
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"predictors\": {\n        \"Time\": 7610, \"V1\": 0.72564574, \"V2\":2.300894438, \"V3\":-5.329976183, \"V4\":4.007682805, \n        \"v5\":-1.73041059, \"v6\":\t-1.732192568, \"v7\": -3.968592618, \"v8\": 1.0637281531,\n        \"v9\": -0.486096552, \"v10\": -4.624984954, \"v11\":  5.588723915, \"v12\": -7.148242636,\n        \"v13\": 1.680450741, \"v14\": -6.210257747, \"v15\": 0.495282118, \"v16\": -3.599540209,\n        \"v17\": -4.830324242, \"v18\": -0.64909012, \"v19\": 2.250123249, \"v20\": 0.504646226,\n        \"v21\": 0.589669127, \"v22\": 0.109541319, \"v23\": 0.601045277, \"v24\": -0.364700278,\n        \"v25\": \t-1.843077692, \"v26\": 0.351909298, \"v27\":  0.594549978, \"v28\": 0.099372236, \n        \"Amount\": 1.0  \n    }\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:5000/is_fraud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"is_fraud"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

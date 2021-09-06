@@ -1,0 +1,29 @@
+{
+  "training_parameters":
+  {
+      "random_state": 42,
+      "test_size": 0.2,
+      "folds": 5,
+      "verbose_eval": 100,
+      "early_stop": 100
+  },
+  "model_parameters":
+  {
+      "n_estimators": 1000,
+      "learning_rate": 0.05,
+      "num_leaves": 80,
+      "colsample_bytree": 0.98,
+      "subsample": 0.78,
+      "reg_alpha": 0.04,
+      "reg_lambda": 0.073,
+      "subsample_for_bin": 50,
+      "boosting_type": "gbdt",
+      "is_unbalance": false,
+      "min_split_gain": 0.025,
+      "min_child_weight": 40,
+      "min_child_samples": 510,
+      "objective": "binary",
+      "metric": "auc",
+      "feval": null
+  }
+}
